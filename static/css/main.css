@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+body {
+    background-image: url('../img/bg.jpg') !important;
+    background-attachment: fixed !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    font-family: 'Ubuntu', sans-serif;
+    color: #212529;
+}
+
+/* Контейнер-підкладка для читабельності контенту */
+.content-wrapper {
+    background-color: rgba(255, 255, 255, 0.96) !important;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+/* Заголовок блогу */
+.site-header {
+    background-color: rgba(33, 37, 41, 0.85);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    padding: 15px 25px;
+    margin-bottom: 20px;
+}
+
+.site-title {
+    color: #ffffff !important;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Стилі для заголовків статей */
+.article-title {
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.article-date {
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.article-body {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #2b2b2b;
+}
+
+/* Навігація Хлібні крихти (Breadcrumb) */
+.breadcrumb {
+    background-color: #f1f3f5;
+    padding: 10px 18px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb-item a {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumb-item.active {
+    color: #495057;
+}
+
+/* Картки публікацій */
+.article-block, .articles-row {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.article-block:hover, .articles-row:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Галерея та зображення */
+.container-image img, .fotorama img {
+    border-radius: 8px;
+    max-width: 100%;
+}

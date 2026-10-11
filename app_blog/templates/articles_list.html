@@ -1,27 +1,30 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title>Публікації</title>
-</head>
-<body>
-    <a href="/">← На головну</a>
-    <h1>Публікації</h1>
-    {% if category %} <h3>Категорія: {{ category }}</h3> {% endif %}
-    {% for item in items %}
-    <div class="articles-row">
-        <a href="{{ item.get_absolute_url }}">
-            <h4>{{ item.title }}</h4>
-        </a>
-        <h5>{{ item.pub_date|date:"j E Y"|safe|linebreaks }}</h5>
-        <p>{{ item.description|safe|escape|striptags|truncatewords_html:32 }}</p>
-        {% if item.images.all %}
-        <div class="container-image">
-            <img class="img" src="{{ item.images.all.0.image.url }}" alt="{{ item.title }}" />
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Всі публікації{% endblock %}
+
+{% block content %}
+{% spaceless %}
+<h1 class="mb-3">Публікації</h1>
+{% if category %}<h4 class="text-secondary mb-4">Категорія: {{ category }}</h4>{% endif %}
+
+<div class="row">
+{% for item in items %}
+    <div class="col-md-6 mb-4">
+        <div class="articles-row card h-100 shadow-sm p-3">
+            <a href="{{ item.get_absolute_url }}" class="text-decoration-none">
+                <h4 class="card-title text-dark">{{ item.title }}</h4>
+            </a>
+            <h6 class="card-subtitle mb-2 text-muted">{{ item.pub_date|date:"j E Y" }}</h6>
+            <p class="card-text">{{ item.description|safe|escape|striptags|truncatewords_html:25 }}</p>
+            {% if item.images.all %}
+            <div class="container-image mt-auto">
+                <img class="img-fluid rounded" src="{{ item.images.all.0.image.url }}" alt="{{ item.title }}" />
+            </div>
+            {% endif %}
         </div>
-        {% endif %}
-        <hr/>
     </div>
-    {% endfor %}
-</body>
-</html>
+{% endfor %}
+</div>
+{% endspaceless %}
+{% endblock %}
